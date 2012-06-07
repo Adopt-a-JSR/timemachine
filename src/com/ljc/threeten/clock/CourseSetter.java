@@ -10,4 +10,11 @@ public class CourseSetter implements ICourseSetter {
 		return null;
 	}
 
+	@Override
+	public LocalDate getLocalDateBeforeEvent(int year, int month, int day,
+			int offset) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

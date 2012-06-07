@@ -18,5 +18,14 @@ public class TestCourseSetter {
 		assertEquals("Month not correct", 1, henrysDeath.getMonth());
 		assertEquals("Day not correct", 28, henrysDeath.getDayOfMonth());
 	}
+	
+	@Test
+	public void testSetCourseForThreeDaysBeforeGunPowderPlot() {
+		LocalDate powderPlotIntervention = courseSetter.getLocalDateBeforeEvent(1605, 11, 5, 3);
+		
+		assertEquals("Year not correct", 1605, powderPlotIntervention.getYear());
+		assertEquals("Month not correct", 11, powderPlotIntervention.getMonth());
+		assertEquals("Day not correct", 2, powderPlotIntervention.getDayOfMonth());
+	}
 
 }
