@@ -1,0 +1,2 @@
+Unlike the easy level exercises the medium exercises will involve more interactions with using dates rather than 
+hitting the library and getting used to some of the functions that are available

@@ -6,15 +6,12 @@ public class CourseSetter implements ICourseSetter {
 
 	@Override
 	public LocalDate getLocalDateFor(int year, int month, int day) {
-		// TODO Auto-generated method stub
-		return null;
+		return LocalDate.of(year, month, day);
 	}
 
 	@Override
-	public LocalDate getLocalDateBeforeEvent(int year, int month, int day,
-			int offset) {
-		// TODO Auto-generated method stub
-		return null;
+	public LocalDate getLocalDateBeforeEvent(int year, int month, int day, int offset) {
+		return LocalDate.of(year, month, day).minusDays(offset);
 	}
 
 }
