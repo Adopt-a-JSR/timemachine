@@ -9,3 +9,13 @@ travel to the next level.
 Beginning:
 Before the time traveler can head off, first she must set the course. This will involve a range of date and time 
 setting challenges using the API. The unit tests will help to lead the way 
+
+Intermediate: Cross-Region Timetabling
+
+* A School in the UK and Japan are planning an exchange trip.
+* You're given in their local dates, and must represent, their school holidays.
+* You need to calculate the possible days on which the exchange trip can fall.
+* The children need to stay in the location for a minimum of 5 days.
+* You should exclude the duration of the flight from the period.
+* The children must fly out/back on a weekday at both ends in order to minimise cost.
+
