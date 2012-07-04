@@ -1,9 +1,17 @@
 package com.ljc.threeten.intermediate;
 
+import static javax.time.calendrical.LocalDateTimeField.DAY_OF_MONTH;
+import static javax.time.calendrical.LocalDateTimeField.MONTH_OF_YEAR;
+import static javax.time.calendrical.LocalDateTimeField.YEAR;
+import static javax.time.format.TextStyle.FULL;
+
 import java.util.Comparator;
 
 import javax.time.LocalDateTime;
 import javax.time.Period;
+import javax.time.calendrical.CalendricalFormatter;
+import javax.time.calendrical.LocalDateTimeUnit;
+import javax.time.format.DateTimeFormatterBuilder;
 
 /**
  * Information for pupils about an exchange trip.
@@ -21,12 +29,25 @@ public class ExchangeTrip {
 	 * @return
 	 */
 	public static ExchangeTrip from(String hostSchool, LocalDateTime start, LocalDateTime end, Period travelTime) {
-		throw new UnsupportedOperationException("TODO: implement");
+		return new ExchangeTrip(hostSchool, start, end, travelTime);
 	}
 	
 	private String hostSchool;
-	
-	// TODO: write constructor
+	private LocalDateTime start;
+	private LocalDateTime end;
+	private Period travelTime;
+	private CalendricalFormatter formatter = new DateTimeFormatterBuilder()
+													.appendText(DAY_OF_MONTH, FULL).appendLiteral("st ")
+													.appendText(MONTH_OF_YEAR, FULL).appendLiteral(' ')
+													.appendValue(YEAR)
+													.toFormatter();
+
+	private ExchangeTrip(String hostSchool, LocalDateTime start, LocalDateTime end, Period travelTime) {
+		this.hostSchool = hostSchool;
+		this.start = start;
+		this.end = end;
+		this.travelTime = travelTime;
+	}
 
 	public boolean startsOnAWeekend() {
 		throw new UnsupportedOperationException("TODO: implement");
@@ -41,31 +62,35 @@ public class ExchangeTrip {
 	}
 	
 	/**
-	 * Including travel time
+	 * Return value in days, including travel time
 	 */
 	public Period getLengthOfTrip() {
-		throw new UnsupportedOperationException("TODO: implement");
+		return LocalDateTimeUnit.DAYS.between(start, end);
 	}
-	
+
 	/**
-	 * Time taken to get to the destination + time taken to get home.
+	 * Time taken to get to the destination + time taken to get home, provided in hours.
 	 */
 	public Period getLengthOfTotalTravel() {
-		throw new UnsupportedOperationException("TODO: implement");
+		return travelTime.plus(travelTime);
 	}
 	
 	/**
 	 * eg: "21st May 2013"
 	 */
 	public String getPrettyPrintedBeginningDate() {
-		throw new UnsupportedOperationException("TODO: implement");
+		return prettyPrint(start);
 	}
 
 	/**
 	 * eg: "31st May 2013"
 	 */
 	public String getPrettyPrintedEndDate() {
-		throw new UnsupportedOperationException("TODO: implement");
+		return prettyPrint(end);
+	}
+	
+	private String prettyPrint(LocalDateTime date) {
+		return date.toString(formatter);
 	}
 
 	/**

@@ -31,7 +31,7 @@ public class ExchangeTripTests {
 
 	@Test
 	public void expectedTotalTravel() {
-		assertEquals(Period.of(24, HOURS), trip.getLengthOfTrip());
+		assertEquals(Period.of(24, HOURS), trip.getLengthOfTotalTravel());
 	}
 
 	@Test

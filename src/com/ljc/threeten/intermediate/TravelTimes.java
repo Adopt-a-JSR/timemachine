@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.time.Period;
+import javax.time.calendrical.LocalDateTimeUnit;
 
 /**
  * A registry of the time taken to travel between schools.
@@ -20,8 +21,10 @@ public class TravelTimes {
 	// ------------------------------------------------------------------------------------------
 	private static final Map<String, Period> registry = new HashMap<String, Period>();
 	
-	public static void addTravelTime(String originSchool, String destinationSchool, Period howLong) {
-		registry.put(makeKey(originSchool, destinationSchool), howLong);
+	static {
+		Period planeFlight = Period.of(12, LocalDateTimeUnit.HOURS);
+		registry.put(makeKey("Seisen International School", "St. Jude's Primary"), planeFlight);
+		registry.put(makeKey("Seisen International School", "St. Jude's Primary"), planeFlight);
 	}
 	
 	private static String makeKey(String fromSchool, String toSchool) {
