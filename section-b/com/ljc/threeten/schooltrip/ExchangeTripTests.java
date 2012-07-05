@@ -1,4 +1,4 @@
-package com.ljc.threeten.intermediate;
+package com.ljc.threeten.schooltrip;
 
 import static javax.time.calendrical.LocalDateTimeUnit.DAYS;
 import static javax.time.calendrical.LocalDateTimeUnit.HOURS;
@@ -11,6 +11,8 @@ import javax.time.calendrical.LocalDateTimeUnit;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import com.ljc.threeten.intermediate.ExchangeTrip;
 
 public class ExchangeTripTests {
 

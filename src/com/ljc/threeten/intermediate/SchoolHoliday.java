@@ -28,7 +28,7 @@ public class SchoolHoliday {
 
 	private static final CalendricalFormatter timeFormatter = new DateTimeFormatterBuilder()
 			.appendValue(HOUR_OF_DAY).appendLiteral(':')
-			.appendValue(MINUTE_OF_HOUR).toFormatter();	
+			.appendValue(MINUTE_OF_HOUR).toFormatter();
 	
 	private final String schoolName;
 	private final ZoneId timeZone;

@@ -1,4 +1,4 @@
-package com.ljc.threeten.intermediate;
+package com.ljc.threeten.schooltrip;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -7,6 +7,9 @@ import javax.time.calendrical.LocalDateTimeUnit;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import com.ljc.threeten.intermediate.ExchangeTrip;
+import com.ljc.threeten.intermediate.SchoolHoliday;
 
 /**
  * HINT: implement {@link ExchangeTripTests} first.
@@ -21,10 +24,12 @@ public class SchoolHolidayTests {
 	@BeforeClass
 	public static void setupHolidays() {
 		londonSchoolHoliday = new SchoolHoliday("St. Jude's Primary", "Europe/London",
-				"2007-12-03","10:15:30", "2007-12-03","10:15:30");
+				"2007-12-03","10:15:30",
+				"2007-12-03","10:15:30");
 		japaneseSchoolHoliday = new SchoolHoliday(
-				"Seisen International School", "Asia/Tokyo", "2007-12-03",
-				"10:15:30", "2007-12-03", "10:15:30");
+				"Seisen International School", "Asia/Tokyo",
+				"2007-12-03", "10:15:30",
+				"2007-12-03", "10:15:30");
 	}
 
 	@Test
