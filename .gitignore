@@ -5,17 +5,15 @@
 *.perspectivev3
 *.pyc 
 *~.nib/
-build/*
-bin/*
+/build/
+/bin/
+/.settings/
 
 # Textmate - if you build your xcode projects with it
 *.tm_build_errors
-
 # old skool
 .svn
-
 # osx noise
 .DS_Store
 profile
-
 xcuserdata

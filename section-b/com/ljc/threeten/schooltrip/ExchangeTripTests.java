@@ -5,7 +5,7 @@ import static javax.time.calendrical.LocalDateTimeUnit.HOURS;
 import static junit.framework.Assert.assertEquals;
 
 import javax.time.LocalDateTime;
-import javax.time.MonthOfYear;
+import javax.time.Month;
 import javax.time.Period;
 import javax.time.calendrical.LocalDateTimeUnit;
 
@@ -20,8 +20,8 @@ public class ExchangeTripTests {
 
 	@BeforeClass
 	public static void setupTrip() {
-		LocalDateTime start = LocalDateTime.ofMidnight(2013, MonthOfYear.MAY, 21);
-		LocalDateTime end = LocalDateTime.ofMidnight(2013, MonthOfYear.MAY, 31);
+		LocalDateTime start = LocalDateTime.ofMidnight(2013, Month.MAY, 21);
+		LocalDateTime end = LocalDateTime.ofMidnight(2013, Month.MAY, 31);
 		String hostSchool = "St. Jude's Primary";
 		trip = ExchangeTrip.from(hostSchool, start, end, Period.of(12, LocalDateTimeUnit.HOURS));
 	}

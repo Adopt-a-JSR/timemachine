@@ -4,9 +4,9 @@
 	<classpathentry kind="src" path="section-a"/>
 	<classpathentry kind="src" path="section-b"/>
 	<classpathentry kind="src" path="section-c"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="lib/threeten-0.7.0-alpha.jar" sourcepath="lib/threeten-sources-0.7.0-alpha.jar"/>
 	<classpathentry kind="lib" path="lib/jsr-310-TZDB-all.jar"/>
-	<classpathentry kind="lib" path="lib/threeten-0.7.0-alpha.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
