@@ -69,16 +69,11 @@ public class SchoolHoliday {
 	 * NB: this object is considered The hosting school.
 	 * 
 	 * @param otherSchoolHolidays the holidays of the school that you're exchanging with.
-	 * @param minimumLengthOfTrip the shortest period of time that a trip can be valid for.
+	 * @param minimumLengthOfTrip the shortest period of time that the trip can take in total.
 	 * @return a valid exchange trip if its possible to get one
 	 * @throws an IllegalArgumentException if its not possible
 	 */
 	public ExchangeTrip getTripFromOverlap(SchoolHoliday otherSchoolHolidays, Period minimumLengthOfTrip) {
-		String otherSchool = otherSchoolHolidays.getSchoolName();
-		Period travelTime = TravelTimes.getTravelTime(schoolName, otherSchool);
-		travelTime = travelTime.plus(travelTime); // Trip there and back
-		Period minimumHolidayLength = minimumLengthOfTrip.minus(travelTime);
-		
 		// Convert time zones
 		ZonedDateTime otherStart = otherSchoolHolidays.start.withZoneSameInstant(this.timeZone);
 		ZonedDateTime otherEnd = otherSchoolHolidays.end.withZoneSameInstant(this.timeZone);
@@ -86,12 +81,20 @@ public class SchoolHoliday {
 		// get interval start and end times
 		LocalDateTime start = getLater(this.start, otherStart);
 		LocalDateTime end = getEarlier(this.end, otherEnd);
-		Period holidayDuration = minimumHolidayLength.getUnit().between(start, end);
+		Period holidayDuration = minimumLengthOfTrip.getUnit().between(start, end);
+		
+		System.out.println(holidayDuration);
+		System.out.println(minimumLengthOfTrip);
 
-		int isValidLength = holidayDuration.compareTo(minimumHolidayLength);
-		if (isValidLength > 1) {
+		int isValidLength = holidayDuration.compareTo(minimumLengthOfTrip);
+		if (isValidLength < 1) {
 			throw new IllegalArgumentException("There is insufficient overlap in dates");
 		}
+		
+		String otherSchool = otherSchoolHolidays.getSchoolName();
+		Period travelTime = TravelTimes.getTravelTime(schoolName, otherSchool);
+		travelTime = travelTime.plus(travelTime); // Trip there and back
+		Period minimumHolidayLength = minimumLengthOfTrip.minus(travelTime);
 		
 		return ExchangeTrip.from(schoolName, start, end, travelTime);
 	}

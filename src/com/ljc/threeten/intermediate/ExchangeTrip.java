@@ -5,8 +5,6 @@ import static javax.time.calendrical.LocalDateTimeField.MONTH_OF_YEAR;
 import static javax.time.calendrical.LocalDateTimeField.YEAR;
 import static javax.time.format.TextStyle.FULL;
 
-import java.util.Comparator;
-
 import javax.time.LocalDateTime;
 import javax.time.Period;
 import javax.time.calendrical.CalendricalFormatter;
@@ -49,14 +47,6 @@ public class ExchangeTrip {
 		this.travelTime = travelTime;
 	}
 
-	public boolean startsOnAWeekend() {
-		throw new UnsupportedOperationException("TODO: implement");
-	}
-
-	public boolean endsOnAWeekend() {
-		throw new UnsupportedOperationException("TODO: implement");
-	}
-
 	public String getHostingSchoolName() {
 		return hostSchool;
 	}
@@ -91,20 +81,6 @@ public class ExchangeTrip {
 	
 	private String prettyPrint(LocalDateTime date) {
 		return date.toString(formatter);
-	}
-
-	/**
-	 * Air transport is cheaper on a weekday.
-	 */
-	public static final Comparator<ExchangeTrip> COST_COMPARATOR = new Comparator<ExchangeTrip>() {
-		@Override
-		public int compare(ExchangeTrip trip1, ExchangeTrip trip2) {
-			return Integer.compare(trip1.getCostScore(), trip2.getCostScore());
-		}
-	};
-
-	private int getCostScore() {
-		return (startsOnAWeekend() ? 0 : 1) + (endsOnAWeekend() ? 0 : 1);
 	}
 
 }

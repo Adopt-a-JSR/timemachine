@@ -23,7 +23,7 @@ public class TravelTimes {
 	
 	static {
 		Period planeFlight = Period.of(12, LocalDateTimeUnit.HOURS);
-		registry.put(makeKey("Seisen International School", "St. Jude's Primary"), planeFlight);
+		registry.put(makeKey("St. Jude's Primary", "Seisen International School"), planeFlight);
 		registry.put(makeKey("Seisen International School", "St. Jude's Primary"), planeFlight);
 	}
 	
