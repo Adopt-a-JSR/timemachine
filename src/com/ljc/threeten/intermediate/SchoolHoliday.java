@@ -1,7 +1,11 @@
 package com.ljc.threeten.intermediate;
 
 
-import static javax.time.calendrical.LocalDateTimeUnit.DAYS;
+import static javax.time.calendrical.LocalDateTimeField.DAY_OF_MONTH;
+import static javax.time.calendrical.LocalDateTimeField.HOUR_OF_DAY;
+import static javax.time.calendrical.LocalDateTimeField.MINUTE_OF_HOUR;
+import static javax.time.calendrical.LocalDateTimeField.MONTH_OF_YEAR;
+import static javax.time.calendrical.LocalDateTimeField.YEAR;
 
 import javax.time.LocalDate;
 import javax.time.LocalDateTime;
@@ -9,25 +13,41 @@ import javax.time.LocalTime;
 import javax.time.Period;
 import javax.time.ZoneId;
 import javax.time.ZonedDateTime;
+import javax.time.calendrical.CalendricalFormatter;
 import javax.time.calendrical.LocalDateTimeUnit;
+import javax.time.format.DateTimeFormatterBuilder;
 
 /**
  * Represents all the holidays for a given school called schoolName.
  */
 public class SchoolHoliday {
 	
+	private static final CalendricalFormatter dateFormatter = new DateTimeFormatterBuilder()
+			.appendValue(YEAR).appendLiteral('-').appendValue(MONTH_OF_YEAR)
+			.appendLiteral('-').appendValue(DAY_OF_MONTH).toFormatter();
+
+	private static final CalendricalFormatter timeFormatter = new DateTimeFormatterBuilder()
+			.appendValue(HOUR_OF_DAY).appendLiteral(':')
+			.appendValue(MINUTE_OF_HOUR).toFormatter();	
+	
 	private final String schoolName;
 	private final ZoneId timeZone;
 	private final ZonedDateTime start;
 	private final ZonedDateTime end;
 	
-	public SchoolHoliday(String schoolName, String zoneId, String startDate, String endDate) {
+	public SchoolHoliday(String schoolName, String zoneId, String startDate, String startTime, String endDate, String endTime) {
 		this.schoolName = schoolName;
 		timeZone = ZoneId.of(zoneId);
-		start = ZonedDateTime.of(LocalDate.parse(startDate), LocalTime.MIDNIGHT, timeZone);
-		end = ZonedDateTime.of(LocalDate.parse(endDate), LocalTime.MIDNIGHT, timeZone);
+		start = parse(startDate, startTime);
+		end = parse(endDate, endTime);
 	}
 	
+	private ZonedDateTime parse(String dateStr, String timeStr) {
+		LocalDate date = LocalDate.parse(dateStr, dateFormatter);
+		LocalTime time = LocalTime.parse(timeStr, timeFormatter);
+		return ZonedDateTime.of(date, time, timeZone);
+	}
+
 	/**
 	 * @return the total number of days that the school is on holiday during the year
 	 */

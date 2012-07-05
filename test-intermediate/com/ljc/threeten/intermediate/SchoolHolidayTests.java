@@ -16,12 +16,15 @@ import org.junit.Test;
 public class SchoolHolidayTests {
 
 	public static SchoolHoliday londonSchoolHoliday;
-	public static SchoolHoliday japanSchoolHoliday;
+	public static SchoolHoliday japaneseSchoolHoliday;
 
 	@BeforeClass
 	public static void setupHolidays() {
-		londonSchoolHoliday = new SchoolHoliday("St. Jude's Primary", "GMT", "", "");
-		japanSchoolHoliday = new SchoolHoliday("Seisen International School", "JST", "", "");
+		londonSchoolHoliday = new SchoolHoliday("St. Jude's Primary", "Europe/London",
+				"2007-12-03","10:15:30", "2007-12-03","10:15:30");
+		japaneseSchoolHoliday = new SchoolHoliday(
+				"Seisen International School", "Asia/Tokyo", "2007-12-03",
+				"10:15:30", "2007-12-03", "10:15:30");
 	}
 
 	@Test
@@ -33,7 +36,7 @@ public class SchoolHolidayTests {
 	@Test
 	public void expectedValidExchanges() {
 		Period atLeastfiveDays = Period.of(5, LocalDateTimeUnit.DAYS);
-		ExchangeTrip possibleTrip = londonSchoolHoliday.getTripFromOverlap(japanSchoolHoliday, atLeastfiveDays);
+		ExchangeTrip possibleTrip = londonSchoolHoliday.getTripFromOverlap(japaneseSchoolHoliday, atLeastfiveDays);
 		
 		assertEquals(londonSchoolHoliday.getSchoolName(), possibleTrip.getHostingSchoolName());
 		assertEquals("", possibleTrip.getPrettyPrintedBeginningDate());
@@ -43,7 +46,7 @@ public class SchoolHolidayTests {
 	@Test(expected=IllegalArgumentException.class)
 	public void expectedInvalidExchanges() {
 		Period atLeastfiveDays = Period.of(15, LocalDateTimeUnit.DAYS);
-		ExchangeTrip possibleTrip = londonSchoolHoliday.getTripFromOverlap(japanSchoolHoliday, atLeastfiveDays);
+		ExchangeTrip possibleTrip = londonSchoolHoliday.getTripFromOverlap(japaneseSchoolHoliday, atLeastfiveDays);
 	}
 
 }
