@@ -1,4 +1,4 @@
-package com.ljc.threeten.advanced;
+package com.ljc.threeten;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -16,19 +16,18 @@ import javax.time.extended.YearMonth;
 
 import org.junit.Test;
 
-import com.ljc.threeten.timetraveller.Comparison;
-import com.ljc.threeten.timetraveller.IComparison;
-
 /**
  * Test to see how sorting works in ThreeTen.
+ * <p>
+ * Your goal is to make these tests pass.
  */
 public class ComparisonTests {
 
-    private IComparison tool = new Comparison();
+    private Comparison tool = new Comparison();
 
     //-----------------------------------------------------------------------
 	@Test
-	public void sort() {
+	public void sortByMonth() {
 	    List<CalendricalObject> cals = new ArrayList<CalendricalObject>();
 	    cals.add(LocalDate.of(2012, Month.NOVEMBER, 12));
         cals.add(LocalDateTime.of(2012, Month.OCTOBER, 12, 13, 30));
@@ -46,5 +45,22 @@ public class ComparisonTests {
         tool.sortByMonth(cals);        
 		assertEquals(expected, cals);
 	}
+
+    //-----------------------------------------------------------------------
+    @Test
+    public void sortByDate() {
+        List<CalendricalObject> cals = new ArrayList<CalendricalObject>();
+        cals.add(LocalDate.of(2012, Month.NOVEMBER, 12));
+        cals.add(LocalDateTime.of(2012, Month.OCTOBER, 12, 13, 30));
+        cals.add(OffsetDate.of(2012, Month.JULY, 28, ZoneOffset.ofHours(1)));
+        
+        List<CalendricalObject> expected = new ArrayList<CalendricalObject>();
+        expected.add(OffsetDate.of(2012, Month.JULY, 28, ZoneOffset.ofHours(1)));
+        expected.add(LocalDateTime.of(2012, Month.OCTOBER, 12, 13, 30));
+        expected.add(LocalDate.of(2012, Month.NOVEMBER, 12));
+        
+        tool.sortByDate(cals);        
+        assertEquals(expected, cals);
+    }
 
 }

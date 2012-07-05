@@ -1,41 +1,28 @@
-package com.ljc.threeten.timetraveller;
+package com.ljc.threeten;
 
 import static javax.time.DayOfWeek.TUESDAY;
-import static javax.time.DayOfWeek.WEDNESDAY;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.time.LocalDate;
-import javax.time.Month;
-import javax.time.calendrical.DateAdjusters;
 import javax.time.chrono.Chrono;
 import javax.time.chrono.ChronoDate;
 import javax.time.format.DateTimeFormatter;
 import javax.time.format.DateTimeFormatters;
 
-
-public class MultiCalendar implements IMultiCalendar {
+/**
+ * Solution to the task.
+ * See {@link MultiCalendarTests}.
+ */
+public class MultiCalendarSolution extends MultiCalendar {
 
     @Override
-    public LocalDate firstWednesday(int year, Month month) {
-        return LocalDate.of(year, month, 1).with(DateAdjusters.nextOrCurrent(WEDNESDAY));
+    public Object findCalendar(String calendarSystem) {
+        return Chrono.ofName(calendarSystem);
     }
 
     @Override
-    public List<String> allWednesdays(int year, Month month) {
-        List<String> result = new ArrayList<String>();
-        LocalDate first = firstWednesday(year, month);
-        LocalDate date = first;
-        while (date.getMonth() == first.getMonth()) {
-            result.add(date.toString());
-            date = date.plusWeeks(1);
-        }
-        return result;
-    }
-
-    @Override
-    public String formattedYearMonth(String calendarSystem) {
+    public String formattedCurrentDateYearMonth(String calendarSystem) {
         ChronoDate date = Chrono.ofName(calendarSystem).now();
         DateTimeFormatter f = DateTimeFormatters.pattern("yyyy-MM");
         return f.print(date);
