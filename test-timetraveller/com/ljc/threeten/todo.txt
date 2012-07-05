@@ -1,2 +1,0 @@
-This time-traveller is the hardest level and will involve working with custom calendaring systems
-and the more advanced sections of the API
