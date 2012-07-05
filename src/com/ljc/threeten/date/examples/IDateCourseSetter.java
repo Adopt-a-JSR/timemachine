@@ -8,7 +8,7 @@ public interface IDateCourseSetter {
 
 	public LocalDate getLocalDateFor(int year, Month month, int day);
 
-	public LocalDate getLocalDateBeforeEvent(int year, Month month, int day, int offset);
+	public LocalDate getLocalDateBeforeEvent(int year, Month month, int day, int daysBefore);
 	
 	public DayOfWeek getDayOfWeek(int year, Month month, int day);
 

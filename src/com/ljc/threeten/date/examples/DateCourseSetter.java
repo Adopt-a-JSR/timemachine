@@ -13,8 +13,8 @@ public class DateCourseSetter implements IDateCourseSetter {
 	}
 
 	@Override
-	public LocalDate getLocalDateBeforeEvent(int year, Month month, int day, int offset) {
-		return LocalDate.of(year, month, day).minusDays(offset);
+	public LocalDate getLocalDateBeforeEvent(int year, Month month, int day, int daysBefore) {
+		return LocalDate.of(year, month, day).minusDays(daysBefore);
 	}
 
 	@Override
