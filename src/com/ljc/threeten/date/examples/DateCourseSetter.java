@@ -1,5 +1,7 @@
 package com.ljc.threeten.date.examples;
 
+import static javax.time.calendrical.LocalDateTimeUnit.YEARS;
+
 import javax.time.DayOfWeek;
 import javax.time.LocalDate;
 import javax.time.Month;
@@ -29,7 +31,7 @@ public class DateCourseSetter implements IDateCourseSetter {
 
 	@Override
 	public int yearsBetweenDates(LocalDate startDate, LocalDate endDate) {		
-		return endDate.getYear() - startDate.getYear();	
+		return YEARS.between(startDate, endDate).getAmountInt();
 	}
 
 }
