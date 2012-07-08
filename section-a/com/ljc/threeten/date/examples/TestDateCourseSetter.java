@@ -52,4 +52,11 @@ public class TestDateCourseSetter {
 		
 		assertEquals("Number of years is not 6", 6, numberOfYears);
 	}
+	
+	//Hard coded unit test to not reveal answer :-)
+	@Test
+	public void getLastDayOfNextMonth() {
+		assertEquals("Last day of Next month is Friday", DayOfWeek.FRIDAY, 
+				dateCourseSetter.getLastDayOfNextMonth());
+	}
 }

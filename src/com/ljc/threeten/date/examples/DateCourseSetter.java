@@ -5,6 +5,7 @@ import static javax.time.calendrical.LocalDateTimeUnit.YEARS;
 import javax.time.DayOfWeek;
 import javax.time.LocalDate;
 import javax.time.Month;
+import javax.time.calendrical.DateAdjusters;
 import javax.time.calendrical.LocalDateTimeField;
 
 public class DateCourseSetter implements IDateCourseSetter {
@@ -32,6 +33,11 @@ public class DateCourseSetter implements IDateCourseSetter {
 	@Override
 	public int yearsBetweenDates(LocalDate startDate, LocalDate endDate) {		
 		return YEARS.between(startDate, endDate).getAmountInt();
+	}
+
+	@Override
+	public DayOfWeek getLastDayOfNextMonth() {
+		return LocalDate.now().plusMonths(1).with(DateAdjusters.lastDayOfMonth()).getDayOfWeek();
 	}
 
 }

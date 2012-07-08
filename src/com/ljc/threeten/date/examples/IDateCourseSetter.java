@@ -15,5 +15,7 @@ public interface IDateCourseSetter {
 	public long getWeekOfYear(int year, Month month, int day);
 
 	public int yearsBetweenDates(LocalDate startDate, LocalDate endDate);
+	
+	public DayOfWeek getLastDayOfNextMonth();
 
 }
