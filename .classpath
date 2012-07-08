@@ -2,11 +2,9 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="section-a"/>
-	<classpathentry kind="src" path="section-b"/>
-	<classpathentry kind="src" path="section-c"/>
-	<classpathentry kind="src" path="section-d"/>
-	<classpathentry kind="src" path="section-e"/>
-	<classpathentry kind="src" path="section-f"/>
+	<classpathentry kind="src" path="section-basic"/>
+	<classpathentry kind="src" path="section-explore"/>
+	<classpathentry kind="src" path="section-project"/>
 	<classpathentry kind="src" path="cheat"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="lib/threeten-0.7.0-alpha.jar" sourcepath="lib/threeten-sources-0.7.0-alpha.jar"/>
