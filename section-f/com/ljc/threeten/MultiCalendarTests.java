@@ -14,7 +14,7 @@ import org.junit.Test;
  */
 public class MultiCalendarTests {
 
-    private MultiCalendar tool = new MultiCalendarSolution();
+    private MultiCalendar tool = new MultiCalendar();
 
     //-----------------------------------------------------------------------
     @Test
