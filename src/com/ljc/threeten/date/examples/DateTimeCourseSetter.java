@@ -4,11 +4,14 @@ import static javax.time.calendrical.LocalDateTimeUnit.YEARS;
 
 import javax.time.DayOfWeek;
 import javax.time.LocalDate;
+import javax.time.LocalDateTime;
 import javax.time.Month;
+import javax.time.ZoneId;
+import javax.time.ZonedDateTime;
 import javax.time.calendrical.DateAdjusters;
 import javax.time.calendrical.LocalDateTimeField;
 
-public class DateCourseSetter implements IDateCourseSetter {
+public class DateTimeCourseSetter implements IDateTimeCourseSetter {
 
 	@Override
 	public LocalDate getLocalDateFor(int year, Month month, int day) {
@@ -38,6 +41,16 @@ public class DateCourseSetter implements IDateCourseSetter {
 	@Override
 	public DayOfWeek getLastDayOfNextMonth() {
 		return LocalDate.now().plusMonths(1).with(DateAdjusters.lastDayOfMonth()).getDayOfWeek();
+	}
+	
+	@Override
+	public LocalDateTime getTimeAtDate(LocalDate localDate, int hour, int minute) {
+		return localDate.atTime(hour, minute, 0);
+	}
+
+	@Override
+	public ZonedDateTime whatTimeIsItInParisAt(ZonedDateTime dateTime) {	
+		return dateTime.withZoneSameInstant(ZoneId.of("Europe/Paris"));
 	}
 
 }

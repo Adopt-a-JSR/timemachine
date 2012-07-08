@@ -4,13 +4,16 @@ import static org.junit.Assert.assertEquals;
 
 import javax.time.DayOfWeek;
 import javax.time.LocalDate;
+import javax.time.LocalDateTime;
 import javax.time.Month;
+import javax.time.ZoneId;
+import javax.time.ZonedDateTime;
 
 import org.junit.Test;
 
-public class TestDateCourseSetter {
+public class TestDateTimeCourseSetter {
 	
-	private IDateCourseSetter dateCourseSetter = new DateCourseSetter();
+	private IDateTimeCourseSetter dateCourseSetter = new DateTimeCourseSetter();
 	
 	@Test
 	public void testSetCourseForHenryVIIIDeath() {
@@ -58,5 +61,22 @@ public class TestDateCourseSetter {
 	public void getLastDayOfNextMonth() {
 		assertEquals("Last day of Next month is Friday", DayOfWeek.FRIDAY, 
 				dateCourseSetter.getLastDayOfNextMonth());
+	}
+	
+	@Test
+	public void convertADateTo3pmTime() {
+		LocalDateTime localDateTime = dateCourseSetter.getTimeAtDate(LocalDate.of(2000, 01, 01), 3, 52);		
+		assertEquals("Time returned is not correct", LocalDateTime.of(2000, 01, 01, 3, 52), localDateTime);
+	}
+	
+	@Test
+	public void testDateTimeInParis() {
+		LocalDateTime now = LocalDateTime.now();
+		ZonedDateTime zonedTime = ZonedDateTime.of(now, ZoneId.of("Europe/London"));
+		ZonedDateTime timeInParis = dateCourseSetter.whatTimeIsItInParisAt(zonedTime);
+		
+		assertEquals("Time returned is not one hour later", now.getHour() + 1, timeInParis.getHour());
+		assertEquals("Minute returned is not the same", now.getMinute(), timeInParis.getMinute());
+		assertEquals("Seconds returned is not the same", now.getMinute(), timeInParis.getMinute());
 	}
 }
