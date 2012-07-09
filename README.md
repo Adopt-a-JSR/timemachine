@@ -5,18 +5,19 @@ At some point, almost everyone has wanted to build a time machine. The exercises
 API initially, to solving some more complicated problems and eventually to writing your own custom calendar system.
 
 The following examples have been created TDD, that is the tests are all failing and require fixing to be able to 
-travel to the next level. 
+travel to the next level.  There are three sections of tests that you can work through.  In all cases there are
+implementation stubs that throw "new UnsupportedOperationException()" which should be replaced with some code.
 
-### Beginning
-Before the time traveler can head off, first she must set the course. This will involve a range of date and time 
-setting challenges using the API. The unit tests will help to lead the way 
+### Basic
+Section Basic just provides some introductory tests for working with basic date and time information.
+You might wish to look at TestDateTimeCourseSetter before QueryTests.
 
-### Intermediate: Cross-Region Timetabling
+### Explore
+Explore is split into three sections, which can be attempted in any order.
+* Alteration - can you change a datetime object?
+* Comparison - Simple comparison operations between calendrical objects.
+* MultiCalendar - working with a Non-ISO Calendaring system.
 
-* A School in the UK and Japan are planning an exchange trip.
-* You're given in their local dates, and must represent, their school holidays.
-* You need to calculate the possible days on which the exchange trip can fall.
-* The children need to stay in the location for a minimum of 5 days.
-* You should exclude the duration of the flight from the period.
-* The children must fly out/back on a weekday at both ends in order to minimise cost.
-
+### Project
+This is an example project that still provides tests to guide your implementation, 
+but gives more scope for design decisions than just local methods.
