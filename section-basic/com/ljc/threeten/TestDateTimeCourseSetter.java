@@ -48,15 +48,6 @@ public class TestDateTimeCourseSetter {
 		assertEquals("Week of year is not correct", 37, weekOfYear);
 	}
 	
-	@Test
-	public void yearsOfWorldWarII() {
-		LocalDate warBegins = LocalDate.of(1939, Month.SEPTEMBER, 1);
-		LocalDate warEnds = LocalDate.of(1945, Month.SEPTEMBER, 2);		
-		int numberOfYears = dateCourseSetter.yearsBetweenDates(warBegins, warEnds);
-		
-		assertEquals("Number of years is not 6", 6, numberOfYears);
-	}
-	
 	//Hard coded unit test to not reveal answer :-)
 	@Test
 	public void getLastDayOfNextMonth() {

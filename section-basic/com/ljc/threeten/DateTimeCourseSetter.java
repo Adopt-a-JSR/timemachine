@@ -34,11 +34,6 @@ public class DateTimeCourseSetter implements IDateTimeCourseSetter {
 	}
 
 	@Override
-	public int yearsBetweenDates(LocalDate startDate, LocalDate endDate) {		
-		return YEARS.between(startDate, endDate).getAmountInt();
-	}
-
-	@Override
 	public DayOfWeek getLastDayOfNextMonth() {
 		return LocalDate.now().plusMonths(1).with(DateAdjusters.lastDayOfMonth()).getDayOfWeek();
 	}
