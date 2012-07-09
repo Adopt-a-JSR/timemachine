@@ -14,7 +14,7 @@ import org.junit.Test;
 
 public class TestDateTimeCourseSetter {
 	
-	private IDateTimeCourseSetter dateCourseSetter = new DateTimeCourseSetter();
+	private DateTimeCourseSetter dateCourseSetter = new DateTimeCourseSetter();
 	
 	@Test
 	public void testSetCourseForHenryVIIIDeath() {
