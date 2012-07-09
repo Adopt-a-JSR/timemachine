@@ -1,15 +1,7 @@
 package com.ljc.threeten.schooltrip;
 
-import static javax.time.calendrical.LocalDateTimeField.DAY_OF_MONTH;
-import static javax.time.calendrical.LocalDateTimeField.MONTH_OF_YEAR;
-import static javax.time.calendrical.LocalDateTimeField.YEAR;
-import static javax.time.format.TextStyle.FULL;
-
 import javax.time.LocalDateTime;
 import javax.time.Period;
-import javax.time.calendrical.CalendricalFormatter;
-import javax.time.calendrical.LocalDateTimeUnit;
-import javax.time.format.DateTimeFormatterBuilder;
 
 /**
  * Information for pupils about an exchange trip.
@@ -27,60 +19,39 @@ public class ExchangeTrip {
 	 * @return
 	 */
 	public static ExchangeTrip from(String hostSchool, LocalDateTime start, LocalDateTime end, Period travelTime) {
-		return new ExchangeTrip(hostSchool, start, end, travelTime);
-	}
-	
-	private String hostSchool;
-	private LocalDateTime start;
-	private LocalDateTime end;
-	private Period travelTime;
-	private CalendricalFormatter formatter = new DateTimeFormatterBuilder()
-													.appendText(DAY_OF_MONTH, FULL).appendLiteral("st ")
-													.appendText(MONTH_OF_YEAR, FULL).appendLiteral(' ')
-													.appendValue(YEAR)
-													.toFormatter();
-
-	private ExchangeTrip(String hostSchool, LocalDateTime start, LocalDateTime end, Period travelTime) {
-		this.hostSchool = hostSchool;
-		this.start = start;
-		this.end = end;
-		this.travelTime = travelTime;
+		throw new UnsupportedOperationException();
 	}
 
 	public String getHostingSchoolName() {
-		return hostSchool;
+		throw new UnsupportedOperationException();
 	}
 	
 	/**
 	 * Return value in days, including travel time
 	 */
 	public Period getLengthOfTrip() {
-		return LocalDateTimeUnit.DAYS.between(start, end);
+		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * Time taken to get to the destination + time taken to get home, provided in hours.
 	 */
 	public Period getLengthOfTotalTravel() {
-		return travelTime.plus(travelTime);
+		throw new UnsupportedOperationException();
 	}
 	
 	/**
 	 * eg: "21st May 2013"
 	 */
 	public String getPrettyPrintedBeginningDate() {
-		return prettyPrint(start);
+		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * eg: "31st May 2013"
 	 */
 	public String getPrettyPrintedEndDate() {
-		return prettyPrint(end);
-	}
-	
-	private String prettyPrint(LocalDateTime date) {
-		return date.toString(formatter);
+		throw new UnsupportedOperationException();
 	}
 
 }
