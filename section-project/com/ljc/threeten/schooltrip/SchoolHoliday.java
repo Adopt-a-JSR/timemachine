@@ -1,4 +1,4 @@
-package com.ljc.threeten.intermediate;
+package com.ljc.threeten.schooltrip;
 
 
 import static javax.time.calendrical.LocalDateTimeField.DAY_OF_MONTH;
@@ -94,8 +94,6 @@ public class SchoolHoliday {
 		String otherSchool = otherSchoolHolidays.getSchoolName();
 		Period travelTime = TravelTimes.getTravelTime(schoolName, otherSchool);
 		travelTime = travelTime.plus(travelTime); // Trip there and back
-		Period minimumHolidayLength = minimumLengthOfTrip.minus(travelTime);
-		
 		return ExchangeTrip.from(schoolName, start, end, travelTime);
 	}
 	
@@ -113,13 +111,6 @@ public class SchoolHoliday {
 		} else {
 			return b.toLocalDateTime();
 		}
-	}
-
-	private Period getMinimumHolidayLength(SchoolHoliday otherSchoolHolidays, Period minimumLengthOfTrip) {
-		String otherSchool = otherSchoolHolidays.getSchoolName();
-		Period travelTime = TravelTimes.getTravelTime(schoolName, otherSchool);
-		travelTime = travelTime.plus(travelTime); // Trip there and back
-		return minimumLengthOfTrip.minus(travelTime);
 	}
 
 	public String getSchoolName() {

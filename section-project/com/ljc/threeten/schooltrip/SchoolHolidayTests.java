@@ -9,8 +9,6 @@ import javax.time.calendrical.LocalDateTimeUnit;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.ljc.threeten.intermediate.ExchangeTrip;
-import com.ljc.threeten.intermediate.SchoolHoliday;
 
 /**
  * HINT: implement {@link ExchangeTripTests} first.

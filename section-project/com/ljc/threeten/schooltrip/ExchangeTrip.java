@@ -1,4 +1,4 @@
-package com.ljc.threeten.intermediate;
+package com.ljc.threeten.schooltrip;
 
 import static javax.time.calendrical.LocalDateTimeField.DAY_OF_MONTH;
 import static javax.time.calendrical.LocalDateTimeField.MONTH_OF_YEAR;

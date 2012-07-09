@@ -12,7 +12,6 @@ import javax.time.calendrical.LocalDateTimeUnit;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.ljc.threeten.intermediate.ExchangeTrip;
 
 public class ExchangeTripTests {
 

@@ -1,4 +1,4 @@
-package com.ljc.threeten.date.examples;
+package com.ljc.threeten;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,6 +10,7 @@ import javax.time.ZoneId;
 import javax.time.ZonedDateTime;
 
 import org.junit.Test;
+
 
 public class TestDateTimeCourseSetter {
 	

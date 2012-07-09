@@ -1,4 +1,4 @@
-package com.ljc.threeten.date.examples;
+package com.ljc.threeten;
 
 import javax.time.LocalDate;
 import javax.time.Month;

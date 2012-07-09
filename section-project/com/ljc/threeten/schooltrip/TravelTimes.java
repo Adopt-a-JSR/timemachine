@@ -1,4 +1,4 @@
-package com.ljc.threeten.intermediate;
+package com.ljc.threeten.schooltrip;
 
 import java.util.HashMap;
 import java.util.Map;
